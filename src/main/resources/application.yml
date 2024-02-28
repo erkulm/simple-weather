@@ -1,0 +1,18 @@
+openweather:
+  hourly:
+    baseUrl: http://api.openweathermap.org/data/2.5/forecast
+    apiKey: 39ff74a4baca4ea4f93635a488570511
+    cnt: 16
+    units: metric
+server:
+  servlet:
+    context-path: /simple-weather/api/v/0.1
+  port: 8080
+
+spring:
+  data:
+    redis:
+      database: 0
+      host: 127.0.0.1
+      port: 6379
+      timeout: 30000

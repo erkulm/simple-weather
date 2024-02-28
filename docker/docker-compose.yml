@@ -1,0 +1,19 @@
+version: '2'
+services:
+  redis:
+    container_name: redis
+    image: library/redis:7.2.4
+    ports:
+      - "6379:6379"
+  weather-service:
+    container_name: weather
+    image: weather:0.0.1-SNAPSHOT
+    depends_on:
+      - redis
+    ports:
+      - "8080:8080"
+    environment:
+      -SPRING_DATA_REDIS_DATABASE: 0
+      -SPRING_DATA_REDIS_HOST: redis
+      -SPRING_DATA_REDIS_PORT: 6379
+      -SPRING_DATA_REDIS_TIMEOUT: 30000
